@@ -1,0 +1,17 @@
+/* ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: white;
+    border-radius: 5px;
+  } */
+
+
+
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+  }
+
+.hideCard{
+    padding-top: 12%;
+}
+.viewCard{
+    padding-top: 2%;
+}

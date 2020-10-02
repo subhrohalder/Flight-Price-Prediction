@@ -1,0 +1,131 @@
+<div *ngIf='stopages?.length > 0' [ngClass]="priceCard ? 'viewcard' : 'hideCard'" class="container">
+    <div class="row">
+        <div style="text-align: center" class="col">
+            <img src="assets/flight-home.svg" height="250" alt="">
+        </div>
+        <div class="col">
+            <form (ngSubmit)="onSubmit()" style="padding-top: 2%" [formGroup]="flightDetailsForm">
+                <div class="row">
+                    <div style="text-align: center" class="col">
+                        <mat-form-field>
+                            <input matInput [ngxMatDatetimePicker]="departureDate" placeholder="Departure datetime"
+                                formControlName="departureDate">
+                            <mat-datepicker-toggle matSuffix [for]="departureDate"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #departureDate></ngx-mat-datetime-picker>
+                        </mat-form-field>
+                    </div>
+                    <div style="text-align: center" class="col">
+                        <mat-form-field>
+                            <input matInput [ngxMatDatetimePicker]="arrivalDate" placeholder="Arrival datetime"
+                                formControlName="arrivalDate">
+                            <mat-datepicker-toggle matSuffix [for]="arrivalDate"></mat-datepicker-toggle>
+                            <ngx-mat-datetime-picker #arrivalDate></ngx-mat-datetime-picker>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div style="text-align: center" class="col">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Source</mat-label>
+                            <mat-select (ngModelChange)="sourceChange()" formControlName="source">
+                                <mat-option *ngFor="let source of sourceList" [value]="source">
+                                    {{source}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="text-align: center" class="col">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Destination</mat-label>
+                            <mat-select formControlName="destination">
+                                <mat-option *ngFor="let destination of destinationList" [value]="destination">
+                                    {{destination}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div style="text-align: center" class="col">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Number of stops</mat-label>
+                            <mat-select formControlName="stopage">
+                                <mat-option *ngFor="let stopage of stopages" [value]="stopage.value">
+                                    {{stopage.stop}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="text-align: center" class="col">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Select airline</mat-label>
+                            <mat-select formControlName="airlineName">
+                                <mat-option *ngFor="let airline of airlineList" [value]="airline">
+                                    {{airline}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                    </div>
+                </div>
+
+
+
+            </form>
+            <div style="text-align: center">
+                <button type="submit" [disabled]="flightDetailsForm.invalid" style="margin-bottom:2%"
+                    (click)="onSubmit()" mat-raised-button color="primary">Predict</button>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf='priceCard && this.predictedPrice' style="padding-top: 5% ;padding-bottom: 5%">
+        <div class="row">
+            <div class="col">
+                <mat-card>
+                    <mat-card-title>Your price</mat-card-title>
+                    <mat-card-subtitle>Airline → {{actualPrice.airline}}</mat-card-subtitle>
+                    <mat-card-content>
+                        <strong style="font-size: 25px;color: #3f51b5;">₹{{actualPrice.predictedPrice}}</strong>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col">
+                <mat-card>
+                    <mat-card-title>Highest price</mat-card-title>
+                    <mat-card-subtitle>Airline → {{highestPrice.airline}}</mat-card-subtitle>
+                    <mat-card-content>
+                        <strong style="font-size: 25px;color: firebrick">₹{{highestPrice.predictedPrice}} </strong>
+                        <!-- <span>⬆+500</span> -->
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col">
+                <mat-card>
+                    <mat-card-title>Avg. price</mat-card-title>
+                    <mat-card-subtitle>Airline → All</mat-card-subtitle>
+                    <mat-card-content>
+                        <strong style="font-size: 25px;color: orange">₹{{averagePrice}} </strong>
+                        <!-- <span>⬆+500</span> -->
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col">
+                <mat-card>
+                    <mat-card-title>Lowest price</mat-card-title>
+                    <mat-card-subtitle>Airline → {{lowestPrice.airline}}</mat-card-subtitle>
+                    <mat-card-content>
+                        <strong style="font-size: 25px;color: darkcyan">₹{{lowestPrice.predictedPrice}} </strong>
+                        <!-- <span>⬆+500</span> -->
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
