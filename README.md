@@ -18,7 +18,7 @@ Link: [https://flight-price-predictor.netlify.app](https://flight-price-predicto
 
 
 ## Dataset
-Link: [Kaggle Dataset](https://www.kaggle.com/nikhilmittal/flight-fare-prediction-mh)]
+Link: [Kaggle Dataset](https://www.kaggle.com/nikhilmittal/flight-fare-prediction-mh)
 
 
 ## Tech Stack
@@ -26,5 +26,5 @@ Angular, Flask, Python
 
 
 ## References
-1. [Krish Naik's Youtube Channel](https://www.youtube.com/watch?v=y4EMEpEnElQ)]
+1. [Krish Naik's Youtube Channel](https://www.youtube.com/watch?v=y4EMEpEnElQ)
 2. [Amar Mandal](https://github.com/Mandal-21/Flight-Price-Prediction)
