@@ -8,11 +8,11 @@
 ## Demo
 Link: [https://flight-price-predictor.netlify.app](https://flight-price-predictor.netlify.app/predict)
 
- | ![Landing Page](/Output-Images/flight-price-app-ss-1.PNG)|
+ | ![Landing Page](/Output-Images/flight-price-app-ss-1.png)|
 |:--:| 
 | *Landing Page*|
 
- | ![Output Page](/Output-Images/flight-price-app-ss-2.PNG)|
+ | ![Output Page](/Output-Images/flight-price-app-ss-2.png)|
 |:--:| 
 | *Output Page*|
 
